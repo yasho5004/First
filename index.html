@@ -59,7 +59,7 @@
         .slideshow-container {
             width: 100%;
             max-width: 500px;
-            height: 300px;
+            height: auto;
             position: relative;
             overflow: hidden;
             border-radius: 15px;
@@ -68,15 +68,13 @@
 
         .slide {
             width: 100%;
-            height: 100%;
-            object-fit: contain;
-            position: absolute;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
+            display: none;
+            object-fit: contain; /* Ensure full image is visible */
+            aspect-ratio: 4 / 3; /* Maintain proper aspect ratio */
         }
 
         .slide.active {
-            opacity: 1;
+            display: block;
         }
 
         /* Confetti Effect */
