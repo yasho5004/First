@@ -27,7 +27,6 @@
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
             animation: fadeIn 2s ease-in-out;
             margin-bottom: 20px;
-            overflow: auto;
         }
 
         p {
@@ -59,21 +58,22 @@
         .slideshow-container {
             max-width: 500px;
             width: 100%;
-            height: auto;
+            height: 300px;
             margin-top: 10px;
             overflow: hidden;
             border-radius: 15px;
+            position: relative;
         }
 
         .slide {
             display: none;
             width: 100%;
-            height: 250px; /* FIXED: Set fixed height */
-            object-fit: contain; /* Ensures full image visibility */
-            border-radius: 15px;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
         }
 
-        .active {
+        .slide.active {
             display: block;
         }
 
@@ -106,24 +106,19 @@
     <div class="container">
         <p class="love-message">🌟 Happpyyyyy 18th Birthdayyyyyyy, My Favvvvvvv! 🎉🎂💖<br><br>
         From the very first moment, you’ve been so much more than just a friend—you’ve been my safe place, my constant, my happiest feeling, my absolute favorite person. No matter what, you’ve always been there, standing beside me, defending me, supporting me, and making life feel so much more beautiful. I can’t even begin to express how much that means to me.<br><br>
-        I still remember those after-tuition walks to Samvad PCO—our little world where time slowed down, and we could just be us. We’d stand there for what felt like forever, laughing, talking, and wishing we never had to go home. Those little moments? They are my forever memories, and I will always, always cherish them.<br><br>
         Favvvvv, you are irreplaceable. If I could, I’d freeze time just to relive every second we’ve shared. You have no idea how much I appreciate you, how much I adore you, and how lucky I feel to have you in my life. And in case I haven’t said it enough...<br><br>
         ✨ I loveee youuu, Favvvvv! ✨ No matter what, through every high and every low, I promise—I will always, always be by your side, forever.<br><br>
         Once again, Happpyyyyy Birthdayyyyyyy, my most precious person! 🎊🥳🎂✨ May this year bring you all the happiness, love, and magic you deserve! ❤️</p>
     </div>
     
     <div class="slideshow-container">
-<img class="slide" src="https://yasho5004.github.io/first/IMG-20250228-WA0003.jpg" alt="Birthday Image 3">
-        <img class="slide" src="https://yasho5004.github.io/first/IMG-20250228-WA0004.jpg" alt="Birthday Image 4">
-        <img class="slide" src="https://yasho5004.github.io/first/IMG-20250228-WA0005.jpg" alt="Birthday Image 5">
-        <img class="slide" src="https://yasho5004.github.io/first/IMG-20250228-WA0006.jpg" alt="Birthday Image 6">
-        <img class="slide" src="https://yasho5004.github.io/first/WhatsApp%20Image%202025-02-27%20at%2023.32.04_691530fc.jpg" alt="Birthday Image 1 "> 
+        <img class="slide active" src="https://yasho5004.github.io/first/WhatsApp%20Image%202025-02-27%20at%2023.32.04_691530fc.jpg" alt="Birthday Image 1">
         <img class="slide" src="https://yasho5004.github.io/first/WhatsApp%20Image%202025-02-27%20at%2023.32.04_6ce694c2.jpg" alt="Birthday Image 2">
         <img class="slide" src="https://yasho5004.github.io/first/WhatsApp%20Image%202025-02-27%20at%2023.32.03_07e49e33.jpg" alt="Birthday Image 3">
-
-
-
-
+        <img class="slide" src="https://yasho5004.github.io/first/IMG-20250228-WA0003.jpg" alt="Birthday Image 4">
+        <img class="slide" src="https://yasho5004.github.io/first/IMG-20250228-WA0006.jpg" alt="Birthday Image 5">
+        <img class="slide" src="https://yasho5004.github.io/first/IMG-20250228-WA0005.jpg" alt="Birthday Image 6">
+        <img class="slide" src="https://yasho5004.github.io/first/IMG-20250228-WA0004.jpg" alt="Birthday Image 7">
     </div>
     
     <div class="confetti"></div>
@@ -146,12 +141,12 @@
             let currentIndex = 0;
 
             function showNextSlide() {
-                slides[currentIndex].classList.remove("active");
-                currentIndex = (currentIndex + 1) % slides.length;
-                slides[currentIndex].classList.add("active");
+                slides.forEach(slide => slide.classList.remove("active")); // Remove active class from all
+                currentIndex = (currentIndex + 1) % slides.length; // Cycle through slides
+                slides[currentIndex].classList.add("active"); // Show next slide
             }
 
-            setInterval(showNextSlide, 3000);
+            setInterval(showNextSlide, 3000); // Change slide every 3 seconds
         });
     </script>
 </body>
