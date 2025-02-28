@@ -9,6 +9,7 @@
             font-family: 'Arial', sans-serif;
             text-align: center;
             background: linear-gradient(to right, #ff7eb3, #ff758c, #ff7eb3);
+            overflow-x: hidden;
             margin: 0;
             padding: 20px;
             min-height: 100vh;
@@ -16,7 +17,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            overflow-x: hidden;
         }
 
         .container {
@@ -55,20 +55,14 @@
             100% { transform: scale(1); }
         }
 
-        /* Slideshow Styling */
         .slideshow-container {
-            max-width: 90%;
-            width: 500px;
+            max-width: 500px;
+            width: 100%;
             height: 300px;
-            margin-top: 20px;
+            margin-top: 10px;
             overflow: hidden;
             border-radius: 15px;
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
         .slide {
@@ -77,17 +71,14 @@
             height: 100%;
             object-fit: cover;
             position: absolute;
-            transition: opacity 1s ease-in-out;
         }
 
         .slide.active {
             display: block;
-            opacity: 1;
         }
 
-        /* Confetti Effect */
         .confetti {
-            position: fixed;
+            position: absolute;
             width: 100%;
             height: 100%;
             pointer-events: none;
@@ -120,20 +111,20 @@
         Once again, Happpyyyyy Birthdayyyyyyy, my most precious person! 🎊🥳🎂✨ May this year bring you all the happiness, love, and magic you deserve! ❤️</p>
     </div>
     
-    <!-- Slideshow -->
     <div class="slideshow-container">
-        <img class="slide active" src="https://yasho5004.github.io/first/image1.jpg" alt="Birthday Image 1">
-        <img class="slide" src="https://yasho5004.github.io/first/image2.jpg" alt="Birthday Image 2">
-        <img class="slide" src="https://yasho5004.github.io/first/image3.jpg" alt="Birthday Image 3">
-        <img class="slide" src="https://yasho5004.github.io/first/image4.jpg" alt="Birthday Image 4">
-        <img class="slide" src="https://yasho5004.github.io/first/image5.jpg" alt="Birthday Image 5">
+        <img class="slide active" src="https://yasho5004.github.io/first/WhatsApp%20Image%202025-02-27%20at%2023.32.04_691530fc.jpg" alt="Birthday Image 1">
+        <img class="slide" src="https://yasho5004.github.io/first/WhatsApp%20Image%202025-02-27%20at%2023.32.04_6ce694c2.jpg" alt="Birthday Image 2">
+        <img class="slide" src="https://yasho5004.github.io/first/WhatsApp%20Image%202025-02-27%20at%2023.32.03_07e49e33.jpg" alt="Birthday Image 3">
+        <img class="slide" src="https://yasho5004.github.io/first/IMG-20250228-WA0003.jpg" alt="Birthday Image 4">
+        <img class="slide" src="https://yasho5004.github.io/first/IMG-20250228-WA0006.jpg" alt="Birthday Image 5">
+        <img class="slide" src="https://yasho5004.github.io/first/IMG-20250228-WA0005.jpg" alt="Birthday Image 6">
+        <img class="slide" src="https://yasho5004.github.io/first/IMG-20250228-WA0004.jpg" alt="Birthday Image 7">
     </div>
     
     <div class="confetti"></div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Confetti Effect
             const confettiContainer = document.querySelector(".confetti");
             if (confettiContainer) {
                 for (let i = 0; i < 100; i++) {
@@ -146,13 +137,12 @@
                 }
             }
 
-            // Slideshow Functionality
             let slides = document.querySelectorAll(".slide");
             let currentIndex = 0;
 
             function showNextSlide() {
-                slides[currentIndex].classList.remove("active"); // Hide current slide
-                currentIndex = (currentIndex + 1) % slides.length; // Move to next
+                slides.forEach(slide => slide.classList.remove("active")); // Remove active class from all
+                currentIndex = (currentIndex + 1) % slides.length; // Cycle through slides
                 slides[currentIndex].classList.add("active"); // Show next slide
             }
 
